@@ -1,6 +1,6 @@
 #pragma once
 
-class Player;
+class GameScene;
 
 class Scene
 {
@@ -14,17 +14,19 @@ public:
 	// ‰Šúİ’è
 	void Init();
 
-	// ‰ğ•ú
-	void Release();
-
 	// XVˆ—
 	void Update();
 
 	// •`‰æˆ—
 	void Draw2D();
 
+	// ‰ğ•ú
+	void Release();
+
 	// GUIˆ—
 	void ImGuiUpdate();
+
+	GameScene* m_gameScene = nullptr;
 
 private:
 

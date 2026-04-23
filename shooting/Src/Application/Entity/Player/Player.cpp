@@ -1,0 +1,61 @@
+#include "Player.h"
+
+void Player::Init()
+{
+	m_tex.Load("Texture/Entity/Player/Idle.png");
+
+	m_scale = {1,1};
+	m_rotationZ = 0;
+	m_pos = {};
+	m_moveSpeed = 5;
+
+}
+
+void Player::Update()
+{
+	// à⁄ìÆ
+	if (GetAsyncKeyState('A') & 0x8000)
+	{
+		m_move.x = -m_moveSpeed;
+	}
+	if (GetAsyncKeyState('D') & 0x8000)
+	{
+		m_move.x = m_moveSpeed;
+	}
+	if (GetAsyncKeyState('W') & 0x8000)
+	{
+		m_move.y = m_moveSpeed;
+	}
+	if (GetAsyncKeyState('S') & 0x8000)
+	{
+		m_move.y = -m_moveSpeed;
+	}
+
+	//ç¿ïWçXêV
+	m_pos += m_move;
+	m_move = {};
+
+	///////////////////////////////////////////////////
+
+	m_scaleMat = Math::Matrix::CreateScale(m_scale.x, m_scale.y, 0);
+	m_rotationMat = Math::Matrix::CreateRotationZ(ToRadians(m_rotationZ));
+	m_transMat = Math::Matrix::CreateTranslation(m_pos.x, m_pos.y, 0);
+
+	m_mat = m_scaleMat * m_rotationMat * m_transMat;
+}
+
+void Player::Action()
+{
+	
+}
+
+void Player::Draw()
+{
+	SHADER.m_spriteShader.SetMatrix(m_mat);
+	SHADER.m_spriteShader.DrawTex(&m_tex, { 0,0,100,100 }, 1.0f);
+}
+
+void Player::Release()
+{
+	m_tex.Release();
+}

@@ -43,11 +43,17 @@
     <Filter Include="Src\System\Audio">
       <UniqueIdentifier>{667d1cb1-5ae5-476f-acd5-14b7d294a95a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\Enemy">
+    <Filter Include="Src\Application\Entity">
+      <UniqueIdentifier>{ea1af717-f621-4d2f-b680-6696a5421730}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Entity\Enemy">
       <UniqueIdentifier>{15705640-32bc-4cea-8838-3630851b56c4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\Player">
+    <Filter Include="Src\Application\Entity\Player">
       <UniqueIdentifier>{b6f69b29-7177-46d6-900b-b87b377e9098}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Scene">
+      <UniqueIdentifier>{f6cc3779-5cd3-45a8-bd40-dc436aa50d55}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -144,8 +150,14 @@
     <ClInclude Include="Src\Application\Scene.h">
       <Filter>Src\Application</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Src\Application\Player</Filter>
+    <ClInclude Include="Src\Application\Entity\Player\Player.h">
+      <Filter>Src\Application\Entity\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Entity\CharaBase.h">
+      <Filter>Src\Application\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Scene\GameScene.h">
+      <Filter>Src\Application\Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -212,8 +224,14 @@
     <ClCompile Include="Src\Application\Scene.cpp">
       <Filter>Src\Application</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Src\Application\Player</Filter>
+    <ClCompile Include="Src\Application\Entity\Player\Player.cpp">
+      <Filter>Src\Application\Entity\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Entity\CharaBase.cpp">
+      <Filter>Src\Application\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Scene\GameScene.cpp">
+      <Filter>Src\Application\Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
