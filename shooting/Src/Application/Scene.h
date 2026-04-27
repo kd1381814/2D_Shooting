@@ -1,7 +1,5 @@
 #pragma once
 
-class GameScene;
-
 class Scene
 {
 private:
@@ -25,8 +23,6 @@ public:
 
 	// GUIˆ—
 	void ImGuiUpdate();
-
-	GameScene* m_gameScene = nullptr;
 
 private:
 

@@ -5,7 +5,7 @@
 class Player:public CharaBase
 {
 public:
-	Player() {}
+	Player() { Init(); }
 	~Player() { Release(); }
 
 	void Init();
@@ -16,5 +16,8 @@ public:
 private:
 
 	void Release();
+
+	float m_topRange;
+	float m_bottomRange;
 
 };

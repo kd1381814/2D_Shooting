@@ -19,6 +19,7 @@ protected:
 	Math::Vector2	m_scale;		//Šg‘å—¦
 	float			m_rotationZ;	//‰ñ“]—¦
 	float			m_moveSpeed;	
+	bool			m_alive;
 
 	//s—ñ
 	Math::Matrix	m_scaleMat;

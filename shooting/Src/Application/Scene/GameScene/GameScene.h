@@ -1,21 +1,22 @@
 #pragma once
 
+#include "../BaseScene/BaseScene.h"
+
 class Player;
 
-class GameScene
+class GameScene :public BaseScene
 {
 public:
-	GameScene() {}
+	GameScene() { Init(); }
 	~GameScene() { Release(); }
 
 	void Init();
 	void Update();
 	void Draw();
+	void Release();
 
 	Player* m_player = nullptr;
 
 private:
-
-	void Release();
 
 };

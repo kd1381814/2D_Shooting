@@ -55,6 +55,12 @@
     <Filter Include="Src\Application\Scene">
       <UniqueIdentifier>{f6cc3779-5cd3-45a8-bd40-dc436aa50d55}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Application\Scene\GameScene">
+      <UniqueIdentifier>{6017c00c-51b7-4459-b73f-5cbd399c02ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Scene\BaseScene">
+      <UniqueIdentifier>{4cf0f6c7-77de-4139-b4d9-10f279379c39}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -156,7 +162,13 @@
     <ClInclude Include="Src\Application\Entity\CharaBase.h">
       <Filter>Src\Application\Entity</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Scene\GameScene.h">
+    <ClInclude Include="Src\Application\Scene\GameScene\GameScene.h">
+      <Filter>Src\Application\Scene\GameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Scene\BaseScene\BaseScene.h">
+      <Filter>Src\Application\Scene\BaseScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Scene\SceneManager.h">
       <Filter>Src\Application\Scene</Filter>
     </ClInclude>
   </ItemGroup>
@@ -230,7 +242,13 @@
     <ClCompile Include="Src\Application\Entity\CharaBase.cpp">
       <Filter>Src\Application\Entity</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Scene\GameScene.cpp">
+    <ClCompile Include="Src\Application\Scene\GameScene\GameScene.cpp">
+      <Filter>Src\Application\Scene\GameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Scene\BaseScene\BaseScene.cpp">
+      <Filter>Src\Application\Scene\BaseScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Scene\SceneManager.cpp">
       <Filter>Src\Application\Scene</Filter>
     </ClCompile>
   </ItemGroup>

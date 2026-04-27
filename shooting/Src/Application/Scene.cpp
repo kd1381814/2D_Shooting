@@ -1,30 +1,30 @@
 #include "main.h"
 #include "Scene.h"
-#include "Scene/GameScene.h"
+
+#include "Scene/SceneManager.h"
 
 void Scene::Init()
 {
-	m_gameScene = new GameScene();
-	m_gameScene->Init();
+
 }
 
 void Scene::Update()
 {
-	m_gameScene->Update();
+
+	SceneManager::Instance().PreUpdate();
+
+	SceneManager::Instance().Update();
+
 }
 
 void Scene::Draw2D()
 {
-	m_gameScene->Draw();
+	SceneManager::Instance().Draw();
 }
 
 void Scene::Release()
 {
-	if(m_gameScene)
-	{
-		delete m_gameScene;
-		m_gameScene = nullptr;
-	}
+
 }
 
 void Scene::ImGuiUpdate()

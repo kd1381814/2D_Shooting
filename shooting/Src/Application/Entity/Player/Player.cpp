@@ -4,11 +4,14 @@ void Player::Init()
 {
 	m_tex.Load("Texture/Entity/Player/Idle.png");
 
-	m_scale = {1,1};
+	m_scale = {1.5f,1.5f};
 	m_rotationZ = 0;
 	m_pos = {};
 	m_moveSpeed = 5;
+	m_alive = true;
 
+	m_topRange = 300;
+	m_bottomRange = -170;
 }
 
 void Player::Update()
@@ -16,11 +19,13 @@ void Player::Update()
 	// 移動
 	if (GetAsyncKeyState('A') & 0x8000)
 	{
-		m_move.x = -m_moveSpeed;
+		m_pos.x = 500;
+		m_scale.x *= -1;
 	}
 	if (GetAsyncKeyState('D') & 0x8000)
 	{
-		m_move.x = m_moveSpeed;
+		m_pos.x = -500;
+		m_scale.x *= -1;
 	}
 	if (GetAsyncKeyState('W') & 0x8000)
 	{
@@ -31,9 +36,24 @@ void Player::Update()
 		m_move.y = -m_moveSpeed;
 	}
 
+	//攻撃(スペース)
+	if (GetKeyState(VK_SPACE) & 0x8000)
+	{
+
+	}
+
 	//座標更新
 	m_pos += m_move;
 	m_move = {};
+
+	if (m_pos.y >= m_topRange)
+	{
+		m_pos.y = m_topRange;
+	}
+	if (m_pos.y <= m_bottomRange)
+	{
+		m_pos.y = m_bottomRange;
+	}
 
 	///////////////////////////////////////////////////
 
