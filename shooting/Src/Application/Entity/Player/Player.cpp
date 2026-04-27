@@ -47,7 +47,11 @@ void Player::Update()
 	//攻撃(スペース)
 	if (GetKeyState(VK_SPACE) & 0x8000)
 	{
-		m_attack = true;
+		///////////////////////
+		Math::Vector2 spawnPos = m_pos + Math::Vector2(0, 0);
+		Math::Vector2 vel = Math::Vector2(5.0f, 0.0f);
+		m_playerAtk->Spawn(spawnPos, vel);
+		////////////////////////////
 	}
 
 	//座標更新
@@ -72,7 +76,7 @@ void Player::Update()
 	m_mat = m_scaleMat * m_rotationMat * m_transMat;
 
 	//攻撃更新
-	if (m_attack)
+	if (m_playerAtk)
 	{
 		m_playerAtk->Update();
 	}
@@ -89,7 +93,7 @@ void Player::Draw()
 	SHADER.m_spriteShader.DrawTex(&m_tex, { 0,0,100,100 }, 1.0f);
 
 	//攻撃描画
-	if (m_attack)
+	if (m_playerAtk)
 	{
 		m_playerAtk->Draw();
 	}
