@@ -16,7 +16,7 @@ void GameScene::Init()
 	m_rotationZ = 0;
 	m_pos = {0,65};
 
-	m_player = new Player();
+	m_player = std::make_shared<Player>();
 }
 
 void GameScene::Update()
@@ -51,10 +51,4 @@ void GameScene::Release()
 {
 	m_backTex.Release();
 	m_tex.Release();
-
-	if (m_player)
-	{
-		delete m_player;
-		m_player = nullptr;
-	}
 }

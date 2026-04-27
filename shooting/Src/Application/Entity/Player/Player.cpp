@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "PlayerAttack.h"
 
 void Player::Init()
 {
@@ -7,15 +8,22 @@ void Player::Init()
 	m_scale = {1.5f,1.5f};
 	m_rotationZ = 0;
 	m_pos = {};
+	m_move = {};
 	m_moveSpeed = 5;
 	m_alive = true;
+	m_attack = false;
 
 	m_topRange = 300;
 	m_bottomRange = -170;
+
+	//攻撃初期化
+	m_playerAtk = std::make_shared<PlayerAttack>();
 }
 
 void Player::Update()
 {
+	if (!m_alive)return;
+
 	// 移動
 	if (GetAsyncKeyState('A') & 0x8000)
 	{
@@ -39,7 +47,7 @@ void Player::Update()
 	//攻撃(スペース)
 	if (GetKeyState(VK_SPACE) & 0x8000)
 	{
-
+		m_attack = true;
 	}
 
 	//座標更新
@@ -62,6 +70,12 @@ void Player::Update()
 	m_transMat = Math::Matrix::CreateTranslation(m_pos.x, m_pos.y, 0);
 
 	m_mat = m_scaleMat * m_rotationMat * m_transMat;
+
+	//攻撃更新
+	if (m_attack)
+	{
+		m_playerAtk->Update();
+	}
 }
 
 void Player::Action()
@@ -73,6 +87,12 @@ void Player::Draw()
 {
 	SHADER.m_spriteShader.SetMatrix(m_mat);
 	SHADER.m_spriteShader.DrawTex(&m_tex, { 0,0,100,100 }, 1.0f);
+
+	//攻撃描画
+	if (m_attack)
+	{
+		m_playerAtk->Draw();
+	}
 }
 
 void Player::Release()

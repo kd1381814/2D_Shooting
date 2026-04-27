@@ -15,7 +15,7 @@ public:
 	void Draw();
 	void Release();
 
-	Player* m_player = nullptr;
+	std::shared_ptr<Player> m_player;
 
 private:
 
